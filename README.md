@@ -17,8 +17,9 @@ Blueberry and his boss help their friends learn deep learning.
 激活完成后，就去 [官网](https://www.jetbrains.com.cn/?utm_source=baidu&utm_medium=cpc&utm_campaign=cn-bai-br-brand-ex-pc&utm_content=brand-pure&utm_term=jetbrains)
 下载专业版的 PyCharm 和 DataSpell 
 
-![img.png](https://github.com/teenager-lijh/wecool/tree/master/assets/img.png)
-
+<p align="center" width="100%">
+<img src="assets/img.png" style="width: 50%; min-width: 300px; display: block; margin: auto;">
+</p>
 
 # 2. 内容
 
