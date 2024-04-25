@@ -45,7 +45,7 @@ Blueberry and his boss help their friends learn deep learning.
 
 | 代码                                                                                                                   | 内容                                   | 视频   |
 |----------------------------------------------------------------------------------------------------------------------| -------------------------------------- |------|
-|                                                                                                                      | 线性层                                 | 哔哩哔哩 |
+| [01-Linear-Layer](https://github.com/teenager-lijh/wecool/tree/master/01-Linear-Layer)                      | 线性层                                 | 哔哩哔哩 |
 | [02-How-to-Update-Weights](https://github.com/teenager-lijh/wecool/tree/master/02-How-to-Update-Weights)             | 梯度下降 && 更新权重                   | 哔哩哔哩 |
 | [03-What-is-Activate-Function](https://github.com/teenager-lijh/wecool/tree/master/03-What-is-Activate-Function)     | 什么是激活函数                         | 哔哩哔哩 |
 | [04-Dataset-and-DataLoader](https://github.com/teenager-lijh/wecool/tree/master/04-Dataset-and-DataLoader)           | 数据集 && 数据加载器                   | 哔哩哔哩 |
