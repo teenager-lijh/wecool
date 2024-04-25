@@ -32,27 +32,31 @@ Blueberry and his boss help their friends learn deep learning.
 <img src="assets/img.png" style="width: 50%; min-width: 300px; display: block; margin: auto;">
 </p>
 
-# 3. 内容
+# 3. 资源
+
+这个[代码仓](https://github.com/xmu-xiaoma666/External-Attention-pytorch)里面有很多现成的模块和对应的论文，而且有非常精简的示例代码，方便组装自己的模型使用
+
+
+# 4. 内容
 
 蓝莓和老板总结了如下的学习内容：
 
 
 
-| 代码                                                                                     | 内容                                   | 视频   |
-|----------------------------------------------------------------------------------------| -------------------------------------- |------|
-| [01-Linear-Layer](https://github.com/teenager-lijh/wecool/tree/master/01-Linear-Layer) | 线性层                                 | 哔哩哔哩 |
-| [02-How-to-Update-Weights](https://github.com/teenager-lijh/wecool/tree/master/02-How-to-Update-Weights)                                            | 梯度下降 && 更新权重                   | 哔哩哔哩 |
-| [03-What-is-Activate-Function](https://github.com/teenager-lijh/wecool/tree/master/03-What-is-Activate-Function)                                                           | 什么是激活函数                         | 哔哩哔哩 |
-| [04-Dataset-and-DataLoader](https://github.com/teenager-lijh/wecool/tree/master/04-Dataset-and-DataLoader)                                                               | 数据集 && 数据加载器                   | 哔哩哔哩 |
-| 05-Normlization-and-Regulation                                                         | 归一化 && 正则化                       | 哔哩哔哩 |
-| 06-Convolution-Neural-Networks                                                         | 卷积神经网络                           | 哔哩哔哩 |
-| 07-Transposed-CNNs                                                                     | 转置卷积                               | 哔哩哔哩 |
-| 08-Image-Segmentation-Model                                                            | UNet 图像分割模型                      | 哔哩哔哩 |
-| 09-How-to-Segment-Cars                                                                 | 汽车分割数据集实战                     | 哔哩哔哩 |
-| 10-Tricks-of-CNNs                                                                      | 一些技巧                               | 哔哩哔哩 |
-| 11-Attention-and-Transformer                                                           | 注意力机制 && Transformer 模型         | 哔哩哔哩 |
-| 12-VisionTransformer-and-TransUNet                                                     | 视觉 Transformer (ViT) && TransUNet    | 哔哩哔哩 |
-| 13-SwinTransformer-and-SwinUNet                                                        | 基于滑动窗口的 Transformer && SwinUNet | 哔哩哔哩 |
-| 14-How-to-Build-Your-Own-Modules                                                       | 如何做你自己的模块                     | 哔哩哔哩 |
+| 代码                                                                                                                   | 内容                                   | 视频   |
+|----------------------------------------------------------------------------------------------------------------------| -------------------------------------- |------|
+|                                                                                                                      | 线性层                                 | 哔哩哔哩 |
+| [02-How-to-Update-Weights](https://github.com/teenager-lijh/wecool/tree/master/02-How-to-Update-Weights)             | 梯度下降 && 更新权重                   | 哔哩哔哩 |
+| [03-What-is-Activate-Function](https://github.com/teenager-lijh/wecool/tree/master/03-What-is-Activate-Function)     | 什么是激活函数                         | 哔哩哔哩 |
+| [04-Dataset-and-DataLoader](https://github.com/teenager-lijh/wecool/tree/master/04-Dataset-and-DataLoader)           | 数据集 && 数据加载器                   | 哔哩哔哩 |
+| [05-Normlization-and-Regulation](https://github.com/teenager-lijh/wecool/tree/master/05-Normlization-and-Regulation) | 归一化 && 正则化                       | 哔哩哔哩 |
+| [06-Convolution-Neural-Networks](https://github.com/teenager-lijh/wecool/tree/master/06-Convolution-Neural-Networks) | 卷积神经网络                           | 哔哩哔哩 |
+| [07-Transposed-CNNs](https://github.com/teenager-lijh/wecool/tree/master/07-Transposed-CNNs)                         | 转置卷积                               | 哔哩哔哩 |
+| [08-Image-Segmentation-Model](https://github.com/teenager-lijh/wecool/tree/master/08-Image-Segmentation-Model)       | UNet 图像分割模型                      | 哔哩哔哩 |
+| 09-Tricks-of-CNNs                                                                                                    | 一些技巧                               | 哔哩哔哩 |
+| 10-Attention-and-Transformer                                                                                         | 注意力机制 && Transformer 模型         | 哔哩哔哩 |
+| 11-VisionTransformer-and-TransUNet                                                                                   | 视觉 Transformer (ViT) && TransUNet    | 哔哩哔哩 |
+| 12-SwinTransformer-and-SwinUNet                                                                                      | 基于滑动窗口的 Transformer && SwinUNet | 哔哩哔哩 |
+| 13-How-to-Build-Your-Own-Modules                                                                                     | 如何做你自己的模块                     | 哔哩哔哩 |
 
 
