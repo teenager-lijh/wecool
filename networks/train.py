@@ -100,10 +100,11 @@ def net_trainer(
 
 def train_net():
     from network.net import UNet
+
     model_name = 'UNet'
     train_version = 'v1'  # 这个模型训练的版本号
     resume_from = None  # 是否要在 resume_from 这个权重的基础上继续训练; None 则代表不使用任何预训练权重; 填权重的序号的字符串，如 (001)
-    device = torch.device('cpu')  # 使用第 0 号显卡进行训练
+    device = torch.device('cuda:0')  # 使用第 0 号显卡进行训练
     logger_name = 'train_logger'
     num_workers = 4
 

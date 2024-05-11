@@ -14,7 +14,7 @@ class Up(nn.Module):
 
     def forward(self, x1, x2):
         x = torch.cat([x1, x2], dim=1)
-        x = self.up(x)  # 这一步就将 x1 的通道数减半了
-        x = self.conv(x)
+        x = self.up(x)  # 这一步就将 x 高宽加倍
+        x = self.conv(x)  # 这里改变通道数量, 高宽不变
 
         return x

@@ -36,6 +36,8 @@ Blueberry and his boss help their friends learn deep learning.
 
 这个[代码仓](https://github.com/xmu-xiaoma666/External-Attention-pytorch)里面有很多现成的模块和对应的论文，而且有非常精简的示例代码，方便组装自己的模型使用
 
+在 networks 文件夹中放的是 UNet 在 PyCharm 的工程项目，可以使用 PyCharm 单独打开它，另外我们用到了打印日志的
+功能，你可以参考这篇 [文章](https://mp.weixin.qq.com/s/jFrtQRasQVDGDMFIOADkfg) 来了解 networks/utils/get_logger 的实现原理
 
 # 4. 内容
 
