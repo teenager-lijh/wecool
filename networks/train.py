@@ -99,7 +99,7 @@ def net_trainer(
 
 
 def train_net():
-    from network.net import UNet
+    from network.net import UNet as Model
 
     model_name = 'UNet'
     train_version = 'v1'  # 这个模型训练的版本号
@@ -128,7 +128,7 @@ def train_net():
         logger = get_logger(name=logger_name, file_path=os.path.join(checkpoint_home, f'{train_version}.log'), mode='a')
 
     # 创建模型
-    net = UNet()
+    net = Model()
 
     # 创建数据集
     dataset = TrainDataset(data_root, resize=(480, 320))
