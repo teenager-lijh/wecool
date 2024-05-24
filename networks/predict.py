@@ -22,8 +22,8 @@ def predict(net, inputs):
 def main():
     from network.net import UNet
 
-    checkpoint_home = '/Volumes/SSD/SSD/blueberry/checkpoint'  # 模型权重家目录
-    data_root = '/Volumes/SSD/SSD/blueberry/datasets/UNet'  # 数据集的根目录
+    checkpoint_home = '/home/blueberry/cache/checkpoints/wecool'  # 模型权重家目录
+    data_root = '/home/blueberry/cache/data/UNet'  # 数据集的根目录
     dataset = TrainDataset(data_dir=data_root, resize=(480, 320))
 
     # 选一个数据
@@ -42,7 +42,7 @@ def main():
     net = UNet(in_channels=3, out_channels=2)
 
     # 加载模型权重
-    # load_checkpoint(net, '001.pth', checkpoint_home)
+    load_checkpoint(net, '001.pth', checkpoint_home)
 
     # 预测
     pred = net(inputs)

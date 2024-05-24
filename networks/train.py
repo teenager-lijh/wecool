@@ -99,27 +99,31 @@ def net_trainer(
 
 
 def train_net():
-    from network.net import UNet as Model
+    # from network.net import UNet as Model
+    from bluenet.net import BlueNet as Model
 
-    model_name = 'UNet'
+    model_name = 'BlueNet'
     train_version = 'v1'  # 这个模型训练的版本号
     resume_from = None  # 是否要在 resume_from 这个权重的基础上继续训练; None 则代表不使用任何预训练权重; 填权重的序号的字符串，如 (001)
-    device = torch.device('cuda:0')  # 使用第 0 号显卡进行训练
+    device = torch.device('cuda:3')  # 使用第 0 号显卡进行训练
     logger_name = 'train_logger'
     num_workers = 4
 
     # =============
     lr = 0.004  # 学习率
-    max_epochs = 400  # 在数据集上训练多少轮
+    max_epochs = 5  # 在数据集上训练多少轮
     num_classes = 2  # 这是几个类别的图像分割问题 (背景也算一个类别)
-    batch_size = 1  # 数据集的批量大小
-    data_root = '/Volumes/SSD/SSD/blueberry/datasets/UNet'  # 数据集的根目录
-    checkpoint_home = f'/Volumes/SSD/SSD/blueberry/checkpoints/{model_name}/{train_version}'  # 模型权重和日志的保存目录
-    saved_interval = 20  # 每训练多少轮, 保存一次权重到 checkpoint_home 目录
+    batch_size = 20  # 数据集的批量大小
+    data_root = '/home/blueberry/cache/data/UNet'  # 数据集的根目录
+    checkpoint_home = f'/home/blueberry/cache/checkpoints/wecool'  # 保存模型权重和日志的根目录
+
+    saved_interval = 1  # 每训练多少轮, 保存一次权重到 checkpoint_home 目录
 
     # =============
     # 确保目录存在 ==> 不存在的话自动创建目录
+    checkpoint_home = os.path.join(checkpoint_home, f'{model_name}/{train_version}')  # 模型权重和日志的保存目录
     os.makedirs(checkpoint_home, exist_ok=True)
+
 
     # 创建日志; 如果是从头训练则覆盖日志文件中的内容, 如果是在预训练权重的基础上训练则追加日志内容
     if resume_from is None:
