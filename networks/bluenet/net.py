@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
-from bluenet.module import DoubleConv
-from bluenet.up import Up
-from bluenet.down import Down
+from bluenet2.module import DoubleConv
+from bluenet2.up import Up
+from bluenet2.down import Down
 
 
 class BlueNet(nn.Module):
@@ -10,17 +10,17 @@ class BlueNet(nn.Module):
         super(BlueNet, self).__init__()
 
         self.inc = DoubleConv(in_channels=in_channels, out_channels=32)
-        self.down1 = Down(in_channels=32, out_channels=64, reduction=16)
-        self.down2 = Down(in_channels=64, out_channels=128, reduction=8)
-        self.down3 = Down(in_channels=128, out_channels=256, reduction=4)
-        self.down4 = Down(in_channels=256, out_channels=512, reduction=2)
+        self.down1 = Down(in_channels=32, out_channels=64, reduction=64)
+        self.down2 = Down(in_channels=64, out_channels=128, reduction=32)
+        self.down3 = Down(in_channels=128, out_channels=256, reduction=16)
+        self.down4 = Down(in_channels=256, out_channels=512, reduction=8)
 
         self.bridge = DoubleConv(in_channels=512, out_channels=512)
 
-        self.up4 = Up(in_channels=512 * 2, out_channels=256, reduction=2)
-        self.up3 = Up(in_channels=256 * 2, out_channels=128, reduction=4)
-        self.up2 = Up(in_channels=128 * 2, out_channels=64, reduction=8)
-        self.up1 = Up(in_channels=64 * 2, out_channels=32, reduction=16)
+        self.up4 = Up(in_channels=512 * 2, out_channels=256, reduction=8)
+        self.up3 = Up(in_channels=256 * 2, out_channels=128, reduction=16)
+        self.up2 = Up(in_channels=128 * 2, out_channels=64, reduction=32)
+        self.up1 = Up(in_channels=64 * 2, out_channels=32, reduction=64)
 
         self.outc = DoubleConv(in_channels=32, out_channels=out_channels)
 

@@ -4,6 +4,7 @@ from PIL import Image
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
+import numpy as np
 
 
 class TrainDataset(Dataset):
@@ -13,7 +14,7 @@ class TrainDataset(Dataset):
         self.resize = resize
         files = os.listdir(os.path.join(self.data_dir, 'imgs'))
         self.files = [item.split('.')[0] for item in files]
-        self.convert = ToTensor()
+        self.mask_values = [0, 1]
 
     def __len__(self):
         return len(self.files)
@@ -22,13 +23,24 @@ class TrainDataset(Dataset):
         img = self._load_img(self.files[i], is_mask=False)
         mask = self._load_img(self.files[i], is_mask=True)
 
-        img = self.convert(img)
-        mask = self.convert(mask)
+        # 转化成 np.array 格式
+        img = np.asarray(img, dtype=np.float32)
+        mask = np.asarray(mask, dtype=np.long)
 
-        # 去掉 mask 通道的维度
-        mask = torch.squeeze(mask, dim=0)
+        # 转换成 tensor; # C, H, W; 把通道放在前面; 并且把像素值归一化到 0 到 1 之间
+        img = torch.from_numpy(img).permute(2, 0, 1) / 255.
+        mask = torch.from_numpy(mask)
 
         return img, mask
+
+    # def process(self, img, is_mask=False):
+    #     mask_values = self.mask_values
+    #     height, width = self.resize[0], self.resize[1]
+    #
+    #     mask = torch.zeros((height, width), dtype=torch.long)
+
+
+
 
     def _load_img(self, file_name, is_mask=False):
         data_dir = self.data_dir
@@ -48,7 +60,7 @@ class TrainDataset(Dataset):
 
 
 if __name__ == '__main__':
-    data_dir = '/Volumes/SSD/SSD/blueberry/datasets/UNet'  # your data path
+    data_dir = '/home/blueberry/cache/data/UNet'  # your data path
 
     # 创建数据集对象
     dataset = TrainDataset(data_dir=data_dir, resize=(480, 320))
@@ -57,7 +69,12 @@ if __name__ == '__main__':
     dataloader = DataLoader(dataset, batch_size=8, shuffle=True, pin_memory=True, num_workers=4)
 
     for images, masks in dataloader:
-        print(f'images.shape: {images.shape}')
-        print(f'masks.shape: {masks.shape}')
+        print(f'images.shape: {images.shape}, dtype:{images.dtype}')
+        print(f'masks.shape: {masks.shape}, dtype:{masks.dtype}')
+        print(torch.max(masks))
+        print(torch.min(masks))
+        mask = masks[0]
+
+
         break
 

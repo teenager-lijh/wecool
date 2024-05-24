@@ -1,4 +1,5 @@
 import torch
+import os
 from data.cars import TrainDataset
 import matplotlib.pyplot as plt
 from utils.model import load_checkpoint
@@ -20,14 +21,20 @@ def predict(net, inputs):
 
 
 def main():
-    from network.net import UNet
+    # from network.net import UNet as Model
+    from bluenet.net import BlueNet as Model
 
+    model_name = 'bluenet'
+    version = 'v1'
+    weight = '002.pth'
     checkpoint_home = '/home/blueberry/cache/checkpoints/wecool'  # 模型权重家目录
     data_root = '/home/blueberry/cache/data/UNet'  # 数据集的根目录
+
+    checkpoint_home = os.path.join(checkpoint_home, f"{model_name}/{version}")
     dataset = TrainDataset(data_dir=data_root, resize=(480, 320))
 
     # 选一个数据
-    case_num = 0
+    case_num = 2
     case_name = dataset.files[case_num]
     image, mask = dataset[case_num]
     print(f'case_name: {case_name}')
@@ -39,10 +46,10 @@ def main():
     print(f'inputs.shape: {inputs.shape}')
 
     # 创建模型
-    net = UNet(in_channels=3, out_channels=2)
+    net = Model(in_channels=3, out_channels=2)
 
     # 加载模型权重
-    load_checkpoint(net, '001.pth', checkpoint_home)
+    load_checkpoint(net, weight, checkpoint_home)
 
     # 预测
     pred = net(inputs)
@@ -57,7 +64,7 @@ def main():
     plt.imshow(mask)
     plt.show()
 
-    plt.imshow(pred_mask.permute(1, 2, 0))
+    plt.imshow(pred_mask[0])
     plt.show()
 
 

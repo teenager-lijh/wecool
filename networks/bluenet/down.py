@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from bluenet.module import DoubleConv
-from bluenet.module import Attention
+from bluenet2.module import DoubleConv
+from bluenet2.module import Attention
 
 
 class Down(nn.Module):
@@ -41,7 +41,10 @@ class Down(nn.Module):
         # return self.maxpool_conv(x)
         x = self.down(x)
         x = self.conv(x)
+
+        r = x
         x = self.attn(x)
+        x = x + r  # 做残差
 
         return x
 

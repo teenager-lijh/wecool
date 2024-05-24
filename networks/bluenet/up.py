@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from bluenet.module import DoubleConv
-from bluenet.module import Attention
+from bluenet2.module import DoubleConv
+from bluenet2.module import Attention
 
 
 class Up(nn.Module):
@@ -26,6 +26,10 @@ class Up(nn.Module):
         x = torch.cat([x1, x2], dim=1)
         x = self.up(x)  # 这一步就将 x 高宽加倍
         x = self.conv(x)  # 这里改变通道数量, 高宽不变
+
+        r = x
+        x = self.attn(x)
+        x = x + r  # 做残差
 
         return x
 

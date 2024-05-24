@@ -102,18 +102,18 @@ def train_net():
     # from network.net import UNet as Model
     from bluenet.net import BlueNet as Model
 
-    model_name = 'BlueNet'
+    model_name = 'bluenet'
     train_version = 'v1'  # 这个模型训练的版本号
-    resume_from = None  # 是否要在 resume_from 这个权重的基础上继续训练; None 则代表不使用任何预训练权重; 填权重的序号的字符串，如 (001)
+    resume_from = 2  # 是否要在 resume_from 这个权重的基础上继续训练; None 则代表不使用任何预训练权重; 填权重的前缀,如 66 整型值
     device = torch.device('cuda:3')  # 使用第 0 号显卡进行训练
     logger_name = 'train_logger'
     num_workers = 4
 
     # =============
-    lr = 0.004  # 学习率
-    max_epochs = 5  # 在数据集上训练多少轮
+    lr = 0.05  # 学习率
+    max_epochs = 100  # 在数据集上训练多少轮
     num_classes = 2  # 这是几个类别的图像分割问题 (背景也算一个类别)
-    batch_size = 20  # 数据集的批量大小
+    batch_size = 16  # 数据集的批量大小
     data_root = '/home/blueberry/cache/data/UNet'  # 数据集的根目录
     checkpoint_home = f'/home/blueberry/cache/checkpoints/wecool'  # 保存模型权重和日志的根目录
 
@@ -141,7 +141,8 @@ def train_net():
     loss_func = CrossEntropyDiceLoss()
 
     # 定义优化器
-    optimizer = optim.SGD(net.parameters(), lr=lr)
+    # optimizer = optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=0.0001)
+    optimizer = optim.RMSprop(net.parameters(), lr=lr)
 
     # 输出参数信息
     logger.info(locals())
