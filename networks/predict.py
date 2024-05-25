@@ -22,11 +22,11 @@ def predict(net, inputs):
 
 def main():
     # from network.net import UNet as Model
-    from bluenet.net import BlueNet as Model
+    from bluenet2.net import BlueNet as Model
 
-    model_name = 'bluenet'
-    version = 'v1'
-    weight = '002.pth'
+    model_name = 'bluenet2'
+    version = 'sgd'
+    weight = '001.pth'
     checkpoint_home = '/home/blueberry/cache/checkpoints/wecool'  # 模型权重家目录
     data_root = '/home/blueberry/cache/data/UNet'  # 数据集的根目录
 
@@ -34,7 +34,7 @@ def main():
     dataset = TrainDataset(data_dir=data_root, resize=(480, 320))
 
     # 选一个数据
-    case_num = 2
+    case_num = 20
     case_name = dataset.files[case_num]
     image, mask = dataset[case_num]
     print(f'case_name: {case_name}')
