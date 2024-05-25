@@ -21,10 +21,10 @@ def predict(net, inputs):
 
 
 def main():
-    # from network.net import UNet as Model
-    from bluenet2.net import BlueNet as Model
+    from network.net import UNet as Model
+    # from bluenet2.net import BlueNet as Model
 
-    model_name = 'bluenet2'
+    model_name = 'unet'
     version = 'sgd'
     weight = '001.pth'
     checkpoint_home = '/home/blueberry/cache/checkpoints/wecool'  # 模型权重家目录
