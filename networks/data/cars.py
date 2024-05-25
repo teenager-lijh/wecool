@@ -25,22 +25,13 @@ class TrainDataset(Dataset):
 
         # 转化成 np.array 格式
         img = np.asarray(img, dtype=np.float32)
-        mask = np.asarray(mask, dtype=np.long)
+        mask = np.asarray(mask, dtype=np.int64)
 
         # 转换成 tensor; # C, H, W; 把通道放在前面; 并且把像素值归一化到 0 到 1 之间
         img = torch.from_numpy(img).permute(2, 0, 1) / 255.
         mask = torch.from_numpy(mask)
 
         return img, mask
-
-    # def process(self, img, is_mask=False):
-    #     mask_values = self.mask_values
-    #     height, width = self.resize[0], self.resize[1]
-    #
-    #     mask = torch.zeros((height, width), dtype=torch.long)
-
-
-
 
     def _load_img(self, file_name, is_mask=False):
         data_dir = self.data_dir
